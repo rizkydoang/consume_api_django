@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+      <div>
+          <h3 class="float-md-start mb-0">Detail</h3>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+              <a class="nav-link active" aria-current="page" href="#">{{nav}}</a>
+          </nav>
+      </div>
+  </header>
+  <main class="px-3">
+      <h1>Kumpulan Informasi Sekolah Indonesia</h1>
+      <p class="lead">Website ini berisi tentang informasi Sekolah yang berada di seluruh wilayah Indonesia.</p>
+  </main>
+  <footer class="mt-auto text-white-50">
+      <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+  </footer>
+</div>
+
+  <div class="row mb-2" style="margin-top: 20px;">
+    {% for i in all_item %}
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <h3 class="mb-0">{{i.nama}}</h3>
+            <strong class="d-inline-block mb-2 text-primary">{{i.npsn}}</strong>
+            <div class="mb-1 text-muted">{{i.alamat}} {{i.kecamatan}} {{i.kabupaten}}, {{i.provinsi}}. {{i.kodepos}}</div>
+            <p class="card-text mb-auto">{{i.status}}</p>
+        </div>
+      </div>
+      <hr style="margin-top: 40px; width: 100%;">
+    </div>
+    {% endfor %}
+  </div>
+{%  endblock content %}

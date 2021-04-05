@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <main class="px-3" style="margin-top: 40%;">
+      <h1>Pilih Provinsi</h1>
+      {% for i in all_item %}
+      <h3>{{i}}</h3>
+      <a class="text-white" id="{{i}}" onclick="myFunction('{{i}}')" aria-current="page" href="{{i}}">Cek->></a>
+      {% endfor %}
+      <h3>Daerha lain (Cooming Soon)</h3>
+  </main>
+  <footer class="mt-auto text-white-50">
+      <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+  </footer>
+</div>
+{%  endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <main class="px-3" style="margin-top: 20%;">
+    <h1>Suggest Apps</h1>
+    {% for i in all_item.data %}
+        <h4>{{i.term}}</h4>
+        <form role="form" method="POST" action="{% url 'playstore_app' %}">
+            {% csrf_token %}
+            <div class="col-sm-6">
+            <input type="hidden" class="form-control" id="keyword" name="keyword">
+            </div>
+            <button type="submit" class="btn btn-primary">Cari</button>
+        </form>
+        <br>
+        <br>
+    {% endfor %}
+  </main>
+  <footer class="mt-auto text-white-50">
+      <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+  </footer>
+</div>
+{%  endblock content %}

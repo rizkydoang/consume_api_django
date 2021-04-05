@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+      <div>
+          <h3 class="float-md-start mb-0"><b style="color: rgb(140, 140, 140);">B</b>ati<b style="color: rgb(140, 140, 140);">K</b>ita</h3>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+              <a class="nav-link active" aria-current="page" href="#">{{nav}}</a>
+          </nav>
+      </div>
+  </header>
+  {% for i in detail.hasil %}
+  <main class="px-3">
+      <h1>{{i.nama_batik}}</h1>
+      <h4>{{i.daerah_batik}}</h4>
+      <img width="300px" height="300px" src="{{i.link_batik}}" style="border: 1px solid #ddd; border-radius: 4px; padding: 8px; margin: 20px 0 20px 0;" alt="">
+      <p class="lead">{{i.makna_batik}}</p>
+    </main>
+  {% endfor %}
+  <footer class="mt-auto text-white-50">
+      <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+  </footer>
+</div>
+{%  endblock content %}

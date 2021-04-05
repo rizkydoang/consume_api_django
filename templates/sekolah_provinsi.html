@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <main class="px-3" style="margin-top: 10%;">
+      <h1>Pilih Daerah</h1>
+      {% for i in all_item %}
+      <h3>{{i}}</h3>
+      <a class="text-white" id="{{i}}" onclick="myFunction('{{i}}')" aria-current="page" href="{{i}}">Cek->></a>
+      {% endfor %}
+  </main>
+</div>
+{%  endblock content %}

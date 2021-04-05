@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+      <div>
+          <h3 class="float-md-start mb-0"><b style="color: rgb(140, 140, 140);">B</b>ati<b style="color: rgb(140, 140, 140);">K</b>ita</h3>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+              <a class="nav-link active" aria-current="page" href="#">{{nav}}</a>
+          </nav>
+      </div>
+  </header>
+  <main class="px-3">
+      <h1>Batik Indonesia</h1>
+      <p class="lead">Website ini berisi tentang informasi batik yang berada di seluruh wilayah Indonesia.</p>
+  </main>
+  <footer class="mt-auto text-white-50">
+      <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+  </footer>
+</div>
+
+  <div class="row mb-2">
+    {% for i in all_item.hasil %}
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <h3 class="mb-0">{{i.nama_batik}}</h3>
+            <strong class="d-inline-block mb-2 text-primary">{{i.daerah_batik}}</strong>
+            <div class="mb-1 text-muted">Rp. {{i.harga_rendah}} - Rp. {{i.harga_tinggi}}</div>
+            <p class="card-text mb-auto">{{i.makna_batik}}</p>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+            <img width="306" height="250" src="{{i.link_batik}}" alt="" srcset="">
+        </div>
+      </div>
+      <form role="form" method="POST" action="{% url 'detail' %}">
+        {% csrf_token %}
+        <div class="mb-3 row">
+            <div class="col-sm-6">
+            <input type="hidden" class="form-control" id="link" name="link" value="{{i.nama_batik}}">
+            </div>
+            <button style="width: 200px;" type="submit" style="margin-top: -10px; margin-bottom: 15px; float: left;" class="btn btn-primary">Baca Selengkapnya . . .</button>
+        </div>
+      </form>
+      <hr style="margin-top: 40px; width: 100%;">
+    </div>
+    {% endfor %}
+  </div>
+{%  endblock content %}

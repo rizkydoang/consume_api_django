@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <main class="px-3" style="margin-top: 5%;">
+      <h1>Batik Indonesia</h1>
+      <h3>(GET 2 Function)</h3>
+      <a class="text-white"  aria-current="page" href="{% url 'index' %}">Cek->></a>
+      <br>
+      <br>
+      <h1>Apps Playstore</h1>
+      <h3>(GET 2 Function)</h3>
+      <a class="text-white"  aria-current="page" href="{% url 'playstore' %}">Cek->></a>
+      <br>
+      <br>
+      <h1>Data Sekolah</h1>
+      <h3>(GET 4 Function)</h3>
+      <a class="text-white"  aria-current="page" href="{% url 'sekolah' %}">Cek->></a>
+      <br>
+      <br>
+      <h1>Download Video Youtube</h1>
+      <h3>(POST 1 Function)</h3>
+      <a class="text-white"  aria-current="page" href="{% url 'download_yt' %}">Cek->></a>
+      <br>
+      <br>
+      <h1>Download Video Twitter</h1>
+      <h3>(POST 1 Function)</h3>
+      <a class="text-white"  aria-current="page" href="{% url 'download_twitter' %}">Cek->></a>
+      <br><br><br>
+      <h1>Total Fungsi = 10</h1>
+  </main>
+  <footer class="mt-auto text-white-50">
+      <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+  </footer>
+</div>
+{%  endblock content %}
